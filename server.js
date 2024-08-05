@@ -81,12 +81,14 @@ console.log(prince.isString(3));
  const express = require('express')
  const app = express()
  const db=require('./db');
+ require('dotenv').config();
 
  // Data is coming in different forms like form,json,raw,graphQL
  // converts data to object
  const bodyParser=require('body-parser')
  app.use(bodyParser.json());  //req.body
 
+ const port=process.env.PORT || 3000; 
 
  const MenuItem=require('./model/MenuItem')
  
@@ -200,7 +202,7 @@ app.get('/idli',(req,res)=>{
 })
 */
   
- 
- app.listen(3000, ()=>{
+
+ app.listen(PORT, ()=>{
     console.log('listening on port 3000');
  })
